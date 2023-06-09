@@ -1,7 +1,7 @@
 'use client'
 
+import client from '@/api'
 import { useBoardAtom } from '@/hooks/useBoardAtom'
-import axios from 'axios'
 import { useMount } from 'react-use'
 
 export default function ClientSideBoard() {
@@ -11,7 +11,7 @@ export default function ClientSideBoard() {
   useMount(() => {
     const fetchBoard = async () => {
       try {
-        const response = await axios.get('http://localhost:7777/board/list')
+        const response = await client.get('/board/list')
         setBoard(response.data)
       } catch (error) {
         console.error(error)
