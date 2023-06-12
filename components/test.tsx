@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Button from './common/Button/Button'
 
 type TodoType = {
   id: string
@@ -136,6 +137,15 @@ export default function Test() {
         />
         <button disabled={!todo}>추가</button>
       </form>
+      <Button $color="brand" $size="sm">
+        Click me!
+      </Button>
+      <Button className="w-[96px] h-[100px]" $color="secondary" $size="md" disabled>
+        Click me!
+      </Button>
+      <Button $color="tertiary" $size="lg">
+        Click me!
+      </Button>
     </div>
   )
 }

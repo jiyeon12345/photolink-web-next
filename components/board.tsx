@@ -1,7 +1,7 @@
 'use client'
 
-import client from '@/api'
-import { useBoardAtom } from '@/hooks/useBoardAtom'
+import client from '@/api/api'
+import { useBoardAtom } from '@/states/useBoardAtom'
 import { useMount } from 'react-use'
 
 export default function ClientSideBoard() {

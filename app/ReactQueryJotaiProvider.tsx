@@ -5,7 +5,6 @@ import { useRef } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { worker } from '../mocks/worker'
 
-// 개발 환경에서 mock API 호출
 if (process.env.NODE_ENV === 'development') {
   worker.start()
 }
