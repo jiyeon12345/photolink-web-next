@@ -13,9 +13,9 @@ export type ButtonProps = DetailedHTMLProps<
   HTMLButtonElement
 > & {
   className?: string
+  disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
   onClick?: MouseEvent
-  disabled?: boolean
   children?: ReactNode
   $size?: ButtonSize
   $variant?: ButtonVariant
@@ -23,10 +23,10 @@ export type ButtonProps = DetailedHTMLProps<
 
 function Button({
   className,
-  type = 'button',
-  children,
   disabled,
+  type = 'button',
   onClick,
+  children,
   $size = 'md',
   $variant = 'primary',
 }: ButtonProps) {
@@ -34,6 +34,7 @@ function Button({
 
   const buttonClasses = clsx(
     buttonStyle,
+
     getVariantClasses($variant),
     getSizeClasses($size),
     className

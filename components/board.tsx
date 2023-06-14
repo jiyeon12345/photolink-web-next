@@ -1,8 +1,8 @@
 'use client'
 
 import client from '@/api/api'
+import { useMount } from '@/hooks'
 import { useBoardAtom } from '@/states/useBoardAtom'
-import { useMount } from 'react-use'
 
 export default function ClientSideBoard() {
   //   const { data: boardData } = useFetchBoard()

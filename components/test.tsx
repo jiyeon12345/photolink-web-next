@@ -154,6 +154,22 @@ export default function Test() {
       <Button $variant="tertiary" $size="lg">
         Click me!
       </Button>
+      <Button $variant="tertiary" $size="lg">
+        test
+      </Button>
+      <Button>test</Button>
+      <Button className="w-[200px]" $variant="primary" $size="lg">
+        로그인
+      </Button>
+      <Button className="w-[200px]" $variant="secondary" $size="lg">
+        로그아웃
+      </Button>
+      <Button className="w-[120px]" $variant="tertiary" $size="lg">
+        testste
+      </Button>
+      <h1 className="mobile:hidden">모바밀에선 안보이고</h1>
+      <h2 className="tablet:hidden">테스트를 해봅시다2</h2>
+      <h3 className="desktop:hidden">테스트를 해봅시다3</h3>
     </div>
   )
 }

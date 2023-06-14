@@ -1,0 +1,1 @@
+export { useFetchBoard } from './useFetchBoard'
