@@ -5,11 +5,12 @@ import { useRef } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { worker } from '../mocks/worker'
 
-if (process.env.NODE_ENV === 'development') {
-  worker.start()
-}
+// ! 에러떠서 주석처리함
+// if (process.env.NODE_ENV === 'development') {
+//   worker.start()
+// }
 
-// React Query 인스턴스
+// * React Query 인스턴스
 const createQueryClient = () =>
   new QueryClient({
     defaultOptions: {
@@ -29,7 +30,9 @@ interface ReactQueryJotaiProviderProps {
   children: React.ReactNode
 }
 
-export default function ReactQueryJotaiProvider({ children }: ReactQueryJotaiProviderProps) {
+export default function ReactQueryJotaiProvider({
+  children,
+}: ReactQueryJotaiProviderProps) {
   const queryClient = useRef(createQueryClient())
 
   return (
