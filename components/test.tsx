@@ -167,6 +167,7 @@ export default function Test() {
       <Button className="w-[120px]" $variant="tertiary" $size="lg">
         testste
       </Button>
+      <div>이것은 바로 지라 테스트용입니다 NEXT!</div>
       <h1 className="mobile:hidden">모바밀에선 안보이고</h1>
       <h2 className="tablet:hidden">테스트를 해봅시다2</h2>
       <h3 className="desktop:hidden">테스트를 해봅시다3</h3>
