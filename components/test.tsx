@@ -103,7 +103,9 @@ export default function Test() {
                   type="text"
                   name="todo"
                   value={editingTodoText}
-                  onChange={({ target: { value } }) => setEditingTodoText(value)}
+                  onChange={({ target: { value } }) =>
+                    setEditingTodoText(value)
+                  }
                   disabled={loading}
                 />
                 <button disabled={!editingTodoText}>저장</button>
@@ -114,7 +116,10 @@ export default function Test() {
             ) : (
               <>
                 {todo.text}
-                <button type="button" onClick={() => handleEdit(todo.id, todo.text)}>
+                <button
+                  type="button"
+                  onClick={() => handleEdit(todo.id, todo.text)}
+                >
                   수정
                 </button>
                 <button type="button" onClick={() => handleDelete(todo.id)}>
@@ -137,13 +142,16 @@ export default function Test() {
         />
         <button disabled={!todo}>추가</button>
       </form>
-      <Button $color="brand" $size="sm">
+      <Button className="w-[200px]" $variant="primary" $size="sm">
         Click me!
       </Button>
-      <Button className="w-[96px] h-[100px]" $color="secondary" $size="md" disabled>
+      <Button $variant="secondary" $size="md">
         Click me!
       </Button>
-      <Button $color="tertiary" $size="lg">
+      <Button $variant="tertiary" $size="lg">
+        Click me!
+      </Button>
+      <Button $variant="tertiary" $size="lg">
         Click me!
       </Button>
     </div>
