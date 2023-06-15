@@ -9,14 +9,14 @@ export type StyledButtonProps = {
 }
 
 // * Button Default Style
-export const buttonStyle = `flex items-center justify-center overflow-hidden cursor-pointer transition duration-500 text-white font-bold rounded-2xl`
+export const buttonStyle = `w-auto items-center justify-center overflow-hidden cursor-pointer transition duration-500 font-bold rounded-2xl`
 
 // * Button Variant Style
-export const primaryButtonStyle = `bg-primary hover:bg-primaryDark`
+export const primaryButtonStyle = `bg-primary-500 hover:bg-primary-700 text-white `
 
-export const secondaryButtonStyle = `bg-secondary`
+export const secondaryButtonStyle = `bg-secondary-500 text-white`
 
-export const tertiaryButtonStyle = `bg-tertiary`
+export const tertiaryButtonStyle = `bg-tertiary-500 text-dark`
 
 // * Button Size Style
 export const smButtonStyle = `h-[32px] px-[16px] text-14 leading-12 tracking-12`
