@@ -168,15 +168,9 @@ export default function Test() {
       <Button className="w-[120px] inline-flex" $variant="tertiary" $size="lg">
         <i /> asdasd
       </Button>
-      <h1 className="flex">모바밀에선 안보이고</h1>
-      <h2 className="flex">테스트를 해봅시다2</h2>
-      <h3 className="flex">테스트를 해봅시다3</h3>
-      <Pagination
-        totalItems={100}
-        itemsPerPage={10}
-        currentPage={1}
-        onPageChange={(page) => console.log(page)}
-      />
+      <h1 className="mobile:hidden">모바밀에선 안보이고</h1>
+      <h2 className="tablet:hidden">테스트를 해봅시다2</h2>
+      <h3 className="desktop:hidden">테스트를 해봅시다3</h3>
     </div>
   )
 }
