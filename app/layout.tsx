@@ -1,8 +1,8 @@
+import Header from '@/components/layouts/Header/Header'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Footer from '@/components/layouts/Footer/Footer'
+import { notoSansKR } from '@/styles/theme/typography'
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,7 +17,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ReactQueryJotaiProvider>
       <html lang="ko">
-        <body className={inter.className}>{children}</body>
+        <body className={`${notoSansKR.className}`}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
       </html>
     </ReactQueryJotaiProvider>
   )

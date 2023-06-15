@@ -1,12 +1,14 @@
 function Footer() {
   return (
     <footer>
-      <ul>
-        <li>testestes</li>
-        <li>testestes</li>
-        <li>testestes</li>
-        <li>testestes</li>
-      </ul>
+      <nav>
+        <ul>
+          <li>푸터입니다</li>
+          <li>푸터입니다</li>
+          <li>푸터입니다</li>
+          <li>푸터입니다</li>
+        </ul>
+      </nav>
     </footer>
   )
 }
