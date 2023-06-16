@@ -8,13 +8,14 @@ import {
 } from './styled'
 import clsx from 'clsx'
 
-export type ButtonProps = DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> & {
+export interface ButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   className?: string
   disabled?: boolean
-  onClick?: MouseEvent
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
   children?: ReactNode
   type?: 'button' | 'submit' | 'reset'
   $size?: ButtonSize

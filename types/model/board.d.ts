@@ -1,4 +1,4 @@
-export type Board = Array<{
+export type T_Board = Array<{
   boardId: number
   title: string
   writer: string

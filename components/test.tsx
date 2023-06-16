@@ -168,9 +168,12 @@ export default function Test() {
       <Button className="w-[120px] inline-flex" $variant="tertiary" $size="lg">
         <i /> asdasd
       </Button>
-      <h1 className="mobile:hidden">모바밀에선 안보이고</h1>
-      <h2 className="tablet:hidden">테스트를 해봅시다2</h2>
-      <h3 className="desktop:hidden">테스트를 해봅시다3</h3>
+      <h1 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.1</h1>
+      <h2 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.2</h2>
+      <h3 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.3</h3>
+      <h4 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.4</h4>
+      <h5 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.5</h5>
+      <h6>안녕하세요! 헤딩 태그입니다.6</h6>
     </div>
   )
 }
