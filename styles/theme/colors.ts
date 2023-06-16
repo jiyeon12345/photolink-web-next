@@ -1,3 +1,7 @@
+import { T_Colors } from '@/types/styles/colors'
+
+// * 색상 설정하는 객체
+// * key는 생각의 강도를 나타내는 숫자, value는 그에 해당하는 HEX 코드
 const primary = {
   50: '#EDEDFE',
   100: '#D9DAFD',
@@ -63,15 +67,15 @@ const yellow = {
   900: '#050000',
 }
 
-export const white = '#ffffff'
 export const black = '#000000'
+export const white = '#ffffff'
 
-export const colors = {
+export const colors: T_Colors = {
   primary,
   secondary,
   tertiary,
   red,
   yellow,
-  white,
   black,
+  white,
 }

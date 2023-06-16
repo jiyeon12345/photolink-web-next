@@ -2,7 +2,7 @@ import Header from '@/components/layouts/Header/Header'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
 import './globals.css'
 import Footer from '@/components/layouts/Footer/Footer'
-import { notoSansKR } from '@/styles/theme/typography'
+import { notoSansKR } from '@/styles/theme/font'
 
 export const metadata = {
   title: 'Create Next App',
