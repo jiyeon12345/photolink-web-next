@@ -1,15 +1,18 @@
+'use client'
+
+import Input from '@/components/common/Input/Input'
+
 function Header() {
   return (
-    <header className="flex items-center justify-center">
-      <h1>헤더 입니다</h1>
+    <header className="flex items-center justify-between h-[56px]">
+      {/* <div>
+        <h1>로고</h1>
+      </div>
 
-      <nav>
-        <ul>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-        </ul>
-      </nav>
+      <div className="flex items-center gap-[20px]">
+        <Input type="text" />
+        <h2>이미지</h2>
+      </div> */}
     </header>
   )
 }

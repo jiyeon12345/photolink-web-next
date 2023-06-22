@@ -1,4 +1,6 @@
+import { flexbox } from '@/styles/flexbox'
 import { assertUnreachable } from '@/utils/assertUnreachable'
+import css from 'styled-jsx/css'
 
 export type ButtonSize = 'sm' | 'md' | 'lg'
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
@@ -6,10 +8,22 @@ export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
 export type StyledButtonProps = {
   $variant: ButtonVariant
   $size?: ButtonSize
+  $contain: boolean
 }
 
+// export const buttonStyle = css`
+//   ${flexbox()}
+//   position: relative;
+//   cursor: pointer;
+//   transition: 500ms;
+// `
+
+// export const primaryButtonStyle = css`
+//   color: var(--white);
+//   background-color: var(--primary-500);
+// `
+
 // * Button Default Style
-export const buttonStyle = `w-auto items-center justify-center overflow-hidden cursor-pointer transition duration-500 font-bold rounded-2xl`
 
 // * Button Variant Style
 export const primaryButtonStyle = `bg-primary-500 hover:bg-primary-700 text-white `

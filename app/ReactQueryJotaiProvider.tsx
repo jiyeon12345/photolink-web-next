@@ -6,9 +6,9 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { worker } from '../mocks/worker'
 
 // ! 에러떠서 주석처리함
-// if (process.env.NODE_ENV === 'development') {
-//   worker.start()
-// }
+if (process.env.NODE_ENV === 'development') {
+  worker.start()
+}
 
 // * React Query 인스턴스
 const createQueryClient = () =>

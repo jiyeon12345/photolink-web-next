@@ -17,10 +17,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ReactQueryJotaiProvider>
       <html lang="ko">
-        <body className={`${notoSansKR.className}`}>
-          <Header />
-          {children}
-          <Footer />
+        <body className={`${notoSansKR.className} `}>
+          <div className="realtive flex grow flex-col mx-auto px-[200px]">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </body>
       </html>
     </ReactQueryJotaiProvider>
