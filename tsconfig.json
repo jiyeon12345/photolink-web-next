@@ -1,28 +1,28 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "target": "es5", // * 컴파일된 JavaScript의 ECMAScript 목표 버전을 설정
+    "lib": ["dom", "dom.iterable", "esnext"], // *  컴파일에 포함할 라이브러리 파일 목록을 설정
+    "allowJs": true, // * JavaScript 파일의 컴파일을 허용
+    "skipLibCheck": true, // * 모든 선언 파일(*.d.ts)의 타입 검사를 건너뜀
+    "strict": true, // * 모든 엄격한 타입 검사 옵션 활성화
+    "forceConsistentCasingInFileNames": true, // * 대/소문자 구분을 강제하여 파일 이름 일관성을 유지
+    "noEmit": true, // * 출력 파일 생성하지 않음
+    "esModuleInterop": true, // * ES 모듈 사양에 따라 모듈을 가져옴
+    "module": "esnext", // * 사용할 모듈 시스템을 설정
+    "moduleResolution": "node", // * 모듈을 해석하는 방식을 설정
+    "resolveJsonModule": true, // * import 문에서 .json 확장자를 사용한 모듈을 해석
+    "isolatedModules": true, // * 모든 파일을 독립적인 모듈로 처리
+    "jsx": "preserve", // * TypeScript 컴파일러에게 JSX를 그대로 유지하도록 지시
+    "incremental": true, // * 이전 컴파일에 대한 정보를 저장하여 빌드 시간을 단축
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // * TypeScript 플러그인을 추가
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"] // * 경로 별칭을 설정
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"], // * 컴파일에 포함할 파일 또는 폴더를 지정
+  "exclude": ["node_modules"] // * 컴파일에서 제외할 파일 또는 폴더를 지정
 }

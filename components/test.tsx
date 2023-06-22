@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import Button from './common/Button/Button'
 import Pagination from './common/Pagination/Pagination'
+import Input from './common/Input/Input'
 
 type TodoType = {
   id: string
@@ -11,11 +13,15 @@ type TodoType = {
 }
 
 export default function Test() {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<TodoType>()
   const [todos, setTodos] = useState<TodoType[]>([])
-  const [todo, setTodo] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
   const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
-  const [editingTodoText, setEditingTodoText] = useState<string>('')
 
   useEffect(() => {
     setLoading(true)
@@ -28,17 +34,16 @@ export default function Test() {
   }, [])
 
   // POST
-  const handleSubmit = (event: any) => {
-    event.preventDefault()
+  const onSubmit = (data: TodoType) => {
     setLoading(true)
     fetch('/todos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(todo),
+      body: JSON.stringify(data),
     }).then(() => {
-      setTodo('')
+      setValue('text', '') // reset the input field
       setLoading(false)
       fetch('/todos')
         .then((res) => res.json())
@@ -51,25 +56,24 @@ export default function Test() {
   //
   const handleEdit = (todoId: any, todoText: any) => {
     setEditingTodoId(todoId)
-    setEditingTodoText(todoText)
+    setValue('text', todoText) // fill the input field with the current todo text
   }
 
   // Put
-  const handleUpdate = (event: any, todoId: any) => {
-    event.preventDefault()
+  const handleUpdate = (data: TodoType) => {
     setLoading(true)
-    fetch(`todos/${todoId}`, {
+    fetch(`todos/${editingTodoId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: editingTodoText,
+      body: JSON.stringify(data),
     }).then((res) => {
       fetch('/todos')
         .then((res) => res.json())
         .then((data) => {
           setEditingTodoId(null)
-          setEditingTodoText('')
+          setValue('text', '') // reset the input field
           setTodos(data)
           setLoading(false)
         })
@@ -99,81 +103,59 @@ export default function Test() {
         {todos.map((todo, index) => (
           <li key={todo.id}>
             {editingTodoId === todo.id ? (
-              <form onSubmit={(event) => handleUpdate(event, todo.id)}>
-                <input
+              <form onSubmit={handleSubmit(handleUpdate)}>
+                <Input
+                  {...register('text', { required: 'This field is required' })}
                   type="text"
-                  name="todo"
-                  value={editingTodoText}
-                  onChange={({ target: { value } }) =>
-                    setEditingTodoText(value)
-                  }
                   disabled={loading}
                 />
-                <button disabled={!editingTodoText}>저장</button>
-                <button type="button" onClick={() => setEditingTodoId(null)}>
+                {errors.text && <p>{errors.text.message}</p>}
+                <Button type="submit" $variant="primary">
+                  저장
+                </Button>
+                <Button
+                  type="button"
+                  $variant="secondary"
+                  onClick={() => setEditingTodoId(null)}
+                >
                   취소
-                </button>
+                </Button>
               </form>
             ) : (
               <>
                 {todo.text}
-                <button
+                <Button
                   type="button"
+                  $variant="primary"
                   onClick={() => handleEdit(todo.id, todo.text)}
                 >
                   수정
-                </button>
-                <button type="button" onClick={() => handleDelete(todo.id)}>
+                </Button>
+                <Button
+                  type="button"
+                  $variant="secondary"
+                  onClick={() => handleDelete(todo.id)}
+                >
                   삭제
-                </button>
+                </Button>
               </>
             )}
           </li>
         ))}
       </ul>
 
-      <form onSubmit={handleSubmit}>
-        <input
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          {...register('text', { required: '에러다임마' })}
           type="text"
-          name="todo"
           placeholder="새로운 할일"
-          disabled={loading}
-          value={todo}
-          onChange={({ target: { value } }) => setTodo(value)}
+          error={errors.text?.message}
         />
-        <button disabled={!todo}>추가</button>
+
+        <Button type="submit" $variant="primary">
+          추가
+        </Button>
       </form>
-      <Button className="w-[200px]" $variant="primary" $size="sm">
-        Click me!
-      </Button>
-      <Button $variant="secondary" $size="md">
-        Click me!
-      </Button>
-      <Button $variant="tertiary" $size="lg">
-        Click me!
-      </Button>
-      <Button $variant="tertiary" $size="lg">
-        Click me!
-      </Button>
-      <Button $variant="tertiary" $size="lg">
-        test
-      </Button>
-      <Button>test</Button>
-      <Button className="w-[200px] inline-flex" $variant="primary" $size="lg">
-        로그인
-      </Button>
-      <Button className="w-[200px] inline-flex" $variant="secondary" $size="lg">
-        로그아웃
-      </Button>
-      <Button className="w-[120px] inline-flex" $variant="tertiary" $size="lg">
-        <i /> asdasd
-      </Button>
-      <h1 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.1</h1>
-      <h2 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.2</h2>
-      <h3 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.3</h3>
-      <h4 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.4</h4>
-      <h5 className="tablet:hidden">안녕하세요! 헤딩 태그입니다.5</h5>
-      <h6>안녕하세요! 헤딩 태그입니다.6</h6>
     </div>
   )
 }

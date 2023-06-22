@@ -1,8 +1,6 @@
-import Header from '@/components/layouts/Header/Header'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
-import './globals.css'
-import Footer from '@/components/layouts/Footer/Footer'
 import { notoSansKR } from '@/styles/theme/font'
+import StyledComponentsRegistry from '../lib/registry'
 
 export const metadata = {
   title: 'Create Next App',
@@ -18,9 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <ReactQueryJotaiProvider>
       <html lang="ko">
         <body className={`${notoSansKR.className}`}>
-          <Header />
-          {children}
-          <Footer />
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </body>
       </html>
     </ReactQueryJotaiProvider>
