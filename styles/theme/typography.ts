@@ -1,34 +1,88 @@
-import {
-  T_FontSize,
-  T_LetterSpacing,
-  T_LineHeight,
-} from '@/types/styles/typography'
+import { notoSansKR } from './font'
 
-// * 각각의 폰트 사이즈, 간격, 자간(key)에 따른 픽셀 값(value)을 매핑한 객체
-// * 이를 통해 폰트 사이즈를 통일적으로 관리
-export const fontSize: T_FontSize = {
-  12: '12px',
-  13: '13px',
-  14: '14px',
-  16: '16px',
-  18: '18px',
-  24: '24px',
+export type TextStyle = 'header' | 'button'
+
+const h1 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '6rem',
+  lineHeight: 1.1666666666666667,
+  letterSpacing: '-0.02em',
 }
 
-export const lineHeight: T_LineHeight = {
-  12: '16px',
-  13: '20px',
-  14: '24px',
-  16: '24px',
-  18: '28px',
-  24: '34px',
+const h2 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '5rem',
+  lineHeight: 1.3,
+  letterSpacing: '-0.02em',
 }
 
-export const letterSpacing: T_LetterSpacing = {
-  12: '-0.5px',
-  13: '-1px',
-  14: '-1px',
-  16: '-1px',
-  18: '-2px',
-  24: '-1px',
+const h3 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '4rem',
+  lineHeight: 1.1875,
+  letterSpacing: '-0.01em',
+}
+
+const h4 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '3rem',
+  lineHeight: 1.25,
+  letterSpacing: '-0.005em',
+}
+
+const h5 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '2rem',
+  lineHeight: 1.25,
+}
+
+const h6 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '1.75rem',
+  lineHeight: 1.2857142857142858,
+}
+
+const button1 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '1.25rem',
+  lineHeight: 1.2,
+  textAlign: 'center',
+}
+
+const button2 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  textAlign: 'center',
+}
+
+const button3 = {
+  fontFamily: notoSansKR,
+  fontWeight: 600,
+  fontSize: '0.8125rem',
+  lineHeight: 1.3846153846,
+  textAlign: 'center',
+}
+
+export const headers = {
+  1: h1,
+  2: h2,
+  3: h3,
+  4: h4,
+  5: h5,
+  6: h6,
+}
+
+export const buttons = {
+  1: button1,
+  2: button2,
+  3: button3,
 }

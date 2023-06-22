@@ -1,5 +1,5 @@
 import { assertUnreachable } from '@/utils/assertUnreachable'
-import css from 'styled-jsx/css'
+import { css } from 'styled-components'
 
 type FlexboxValueOriginal =
   | 'center'

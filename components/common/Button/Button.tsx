@@ -1,12 +1,7 @@
+'use client'
+
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react'
-import {
-  ButtonSize,
-  ButtonVariant,
-  buttonStyle,
-  getSizeClasses,
-  getVariantClasses,
-} from './styled'
-import clsx from 'clsx'
+import { ButtonSize, ButtonVariant, StyledButton, buttonStyle } from './styled'
 
 export interface ButtonProps
   extends DetailedHTMLProps<
@@ -20,6 +15,7 @@ export interface ButtonProps
   type?: 'button' | 'submit' | 'reset'
   $size?: ButtonSize
   $variant?: ButtonVariant
+  $contain?: boolean
 }
 
 function Button({
@@ -30,25 +26,22 @@ function Button({
   type = 'button',
   $size = 'md',
   $variant = 'primary',
+  $contain = false,
 }: ButtonProps) {
   const text = <div className="text">{children}</div>
 
-  const buttonClasses = clsx(
-    buttonStyle,
-    getVariantClasses($variant),
-    getSizeClasses($size),
-    className
-  )
-
   return (
-    <button
-      className={buttonClasses}
-      type={type}
+    <StyledButton
+      className={className}
       disabled={disabled}
       onClick={onClick}
+      type={type}
+      $size={$size}
+      $variant={$variant}
+      $contain={$contain}
     >
       {text}
-    </button>
+    </StyledButton>
   )
 }
 
