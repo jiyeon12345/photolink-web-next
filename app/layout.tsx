@@ -1,6 +1,6 @@
+import StyledComponentsRegistry from '@/lib/registry'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
 import { notoSansKR } from '@/styles/theme/font'
-import StyledComponentsRegistry from '../lib/registry'
 
 export const metadata = {
   title: 'Create Next App',

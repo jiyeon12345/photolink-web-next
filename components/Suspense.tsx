@@ -1,3 +1,5 @@
+'use client'
+
 import { useIsMounted } from '@/hooks'
 import { memo, Suspense as ReactSuspense, SuspenseProps } from 'react'
 

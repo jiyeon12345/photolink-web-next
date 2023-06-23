@@ -1,3 +1,4 @@
+import Suspense from '@/components/Suspense'
 import Button from '@/components/common/Button/Button'
 
 export default function Home() {
@@ -9,7 +10,9 @@ export default function Home() {
       <h4>asdas4</h4>
       <h5>asdas5</h5>
       <h6>asdas6</h6>
-      <Button>asdasdas</Button>
+      <Suspense>
+        <Button>asdasdas</Button>
+      </Suspense>
     </main>
   )
 }
