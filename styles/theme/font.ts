@@ -14,9 +14,6 @@ export const notoSansKR = Noto_Sans_KR({
     'Malgun Gothic',
     'Apple SD Gothic Neo',
     'Roboto',
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
     'sans-serif',
   ],
 })

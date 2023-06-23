@@ -1,6 +1,7 @@
 'use client'
 
 import { createGlobalStyle, css } from 'styled-components'
+import { generateHexVariables } from './utils/variables'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -8,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      ${generateHexVariables()}
     }
 
     html {
@@ -71,8 +76,6 @@ const GlobalStyle = createGlobalStyle`
         white-space: nowrap !important;
         border: 0 !important;
       }
-
-
 `
 
 export default GlobalStyle
