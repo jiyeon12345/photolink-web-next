@@ -23,34 +23,53 @@ export const buttonStyle = css`
 export const primaryButtonStyle = css`
   color: var(--white);
   background-color: var(--primary-500);
+
+  &:hover {
+    background-color: var(--primary-700);
+  }
 `
 
 export const secondaryButtonStyle = css`
   color: var(--white);
   background-color: var(--secondary-500);
+
+  &:hover {
+    background-color: var(--secondary-700);
+  }
 `
 
 export const tertiaryButtonStyle = css`
   color: var(--white);
   background-color: var(--tertiary-500);
+
+  &:hover {
+    background-color: var(--tertiary-700);
+  }
 `
 
 // * Button Size Style
 export const smButtonStyle = css`
-  padding: 0.5rem 1rem;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 12px;
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: -0.5px;
 `
 
 export const mdButtonStyle = css`
-  padding: 0.75rem 1.5rem;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
   font-size: 1.25rem;
   line-height: 1.75rem;
   letter-spacing: -1px;
 `
+
 export const lgButtonStyle = css`
-  padding: 1rem 2rem;
+  height: 72px;
+  padding: 0 24px;
+  border-radius: 12px;
   font-size: 1.5rem;
   line-height: 2rem;
   letter-spacing: -1px;
