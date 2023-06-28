@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import Button from './common/Button/Button'
 import Pagination from './common/Pagination/Pagination'
 import Input from './common/Input/Input'
+import { useResponsive } from '@/hooks'
 
 type TodoType = {
   id: string
@@ -23,6 +24,7 @@ export default function Test() {
   const [loading, setLoading] = useState<boolean>(false)
   const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
 
+  const { isMobile, isLaptop, isTablet, isDesktop } = useResponsive()
   useEffect(() => {
     setLoading(true)
     fetch('/todos')
@@ -97,52 +99,56 @@ export default function Test() {
 
   return (
     <div>
-      <h2>할일 목록</h2>
+      {isTablet && <h2>할일 목록</h2>}
 
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={todo.id}>
-            {editingTodoId === todo.id ? (
-              <form onSubmit={handleSubmit(handleUpdate)}>
-                <Input
-                  {...register('text', { required: 'This field is required' })}
-                  type="text"
-                  disabled={loading}
-                />
-                {errors.text && <p>{errors.text.message}</p>}
-                <Button type="submit" $variant="primary">
-                  저장
-                </Button>
-                <Button
-                  type="button"
-                  $variant="secondary"
-                  onClick={() => setEditingTodoId(null)}
-                >
-                  취소
-                </Button>
-              </form>
-            ) : (
-              <>
-                {todo.text}
-                <Button
-                  type="button"
-                  $variant="primary"
-                  onClick={() => handleEdit(todo.id, todo.text)}
-                >
-                  수정
-                </Button>
-                <Button
-                  type="button"
-                  $variant="secondary"
-                  onClick={() => handleDelete(todo.id)}
-                >
-                  삭제
-                </Button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+      {isDesktop && (
+        <ul>
+          {todos.map((todo, index) => (
+            <li key={todo.id}>
+              {editingTodoId === todo.id ? (
+                <form onSubmit={handleSubmit(handleUpdate)}>
+                  <Input
+                    {...register('text', {
+                      required: 'This field is required',
+                    })}
+                    type="text"
+                    disabled={loading}
+                  />
+                  {errors.text && <p>{errors.text.message}</p>}
+                  <Button type="submit" $variant="primary">
+                    저장
+                  </Button>
+                  <Button
+                    type="button"
+                    $variant="secondary"
+                    onClick={() => setEditingTodoId(null)}
+                  >
+                    취소
+                  </Button>
+                </form>
+              ) : (
+                <>
+                  {todo.text}
+                  <Button
+                    type="button"
+                    $variant="primary"
+                    onClick={() => handleEdit(todo.id, todo.text)}
+                  >
+                    수정
+                  </Button>
+                  <Button
+                    type="button"
+                    $variant="secondary"
+                    onClick={() => handleDelete(todo.id)}
+                  >
+                    삭제
+                  </Button>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
@@ -152,9 +158,11 @@ export default function Test() {
           error={errors.text?.message}
         />
 
-        <Button type="submit" $variant="primary">
-          추가
-        </Button>
+        {isTablet && (
+          <Button type="submit" $variant="primary">
+            추가
+          </Button>
+        )}
       </form>
     </div>
   )

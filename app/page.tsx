@@ -11,8 +11,17 @@ export default function Home() {
       <h5>asdas5</h5>
       <h6>asdas6</h6>
       <Suspense>
-        <Button>asdasdas</Button>
+        <Button $size="sm" $contain>
+          로그인
+        </Button>
       </Suspense>
+
+      <Button $size="md" $variant="secondary" $contain>
+        로그인
+      </Button>
+      <Button $size="lg" $variant="tertiary" $contain>
+        로그인
+      </Button>
     </main>
   )
 }
