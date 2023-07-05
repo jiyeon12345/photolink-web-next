@@ -7,6 +7,8 @@ import Pagination from './common/Pagination/Pagination'
 import Input from './common/Input/Input'
 import { useResponsive } from '@/hooks'
 import { isBrowser } from 'react-device-detect'
+import Suspense from './Suspense'
+import Skeleton from './common/Skeleton/Skeleton'
 
 type TodoType = {
   id: string
@@ -102,16 +104,26 @@ export default function Test() {
   return (
     <>
       {isSmallerThanDesktop && (
-        <Button type="button" $variant="secondary" $size="md">
-          SmallerThanDesktop
-        </Button>
+        <>
+          <Suspense
+            fallback={<Skeleton width="100%" height="100%" radius={10} />}
+          >
+            <Button type="button" $variant="secondary" $size="md">
+              스켈레톤
+            </Button>
+          </Suspense>
+        </>
       )}
       {isMobile && (
         <Button type="button" $variant="secondary" $size="md">
           Mobile
         </Button>
       )}
-
+      {isMobile && (
+        <Button type="button" $variant="secondary" $size="md">
+          Mobile2
+        </Button>
+      )}
       {isTablet && (
         <Button type="button" $variant="secondary" $size="md">
           Tablet
