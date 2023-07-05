@@ -32,9 +32,5 @@ export default function Skeleton({
     borderRadius: radius,
   }
 
-  return (
-    <StyledSkeleton {...MOTION} variants={fadeIn} style={style} aria-hidden>
-      <span className="gradient" />
-    </StyledSkeleton>
-  )
+  return <StyledSkeleton style={style} aria-hidden />
 }

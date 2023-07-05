@@ -115,9 +115,12 @@ export default function Test() {
         </>
       )}
       {isMobile && (
-        <Button type="button" $variant="secondary" $size="md">
-          Mobile
-        </Button>
+        <>
+          <Button type="button" $variant="secondary" $size="md">
+            Mobile
+          </Button>
+          <Skeleton width="100%" height="100%" radius={10} />
+        </>
       )}
       {isMobile && (
         <Button type="button" $variant="secondary" $size="md">
