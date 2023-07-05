@@ -1,5 +1,6 @@
 import Suspense from '@/components/Suspense'
 import Button from '@/components/common/Button/Button'
+import { useResponsive } from '@/hooks'
 
 export default function Home() {
   return (
