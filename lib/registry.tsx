@@ -5,6 +5,7 @@ import { useServerInsertedHTML } from 'next/navigation'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import GlobalStyle from '@/styles/GlobalStyle'
 import Suspense from '@/components/Suspense'
+import GlobalHooks from '@/components/GlobalHooks'
 
 export default function StyledComponentsRegistry({
   children,
