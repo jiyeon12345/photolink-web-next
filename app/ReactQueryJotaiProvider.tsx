@@ -40,7 +40,6 @@ export default function ReactQueryJotaiProvider({
   return (
     <QueryClientProvider client={queryClient.current}>
       <GlobalStyle />
-      <GlobalHooks />
       <Provider>{children}</Provider>
     </QueryClientProvider>
   )

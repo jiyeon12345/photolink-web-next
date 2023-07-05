@@ -1,6 +1,7 @@
 import StyledComponentsRegistry from '@/lib/registry'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
 import { notoSansKR } from '@/styles/theme/font'
+import GlobalHooks from '@/components/GlobalHooks'
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +15,9 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ReactQueryJotaiProvider>
-      <html lang="ko">
-        <body className={`${notoSansKR.className}`}>
+      <html lang="ko" className={`${notoSansKR.className}`}>
+        <body>
+          <GlobalHooks />
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </body>
       </html>

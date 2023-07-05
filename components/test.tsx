@@ -6,6 +6,7 @@ import Button from './common/Button/Button'
 import Pagination from './common/Pagination/Pagination'
 import Input from './common/Input/Input'
 import { useResponsive } from '@/hooks'
+import { isBrowser } from 'react-device-detect'
 
 type TodoType = {
   id: string
@@ -24,7 +25,8 @@ export default function Test() {
   const [loading, setLoading] = useState<boolean>(false)
   const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
 
-  const { isMobile, isLaptop, isTablet, isDesktop } = useResponsive()
+  const { isMobile, isLaptop, isTablet, isDesktop, isSmallerThanDesktop } =
+    useResponsive()
   useEffect(() => {
     setLoading(true)
     fetch('/todos')
@@ -35,135 +37,165 @@ export default function Test() {
       })
   }, [])
 
-  // POST
-  const onSubmit = (data: TodoType) => {
-    setLoading(true)
-    fetch('/todos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    }).then(() => {
-      setValue('text', '') // reset the input field
-      setLoading(false)
-      fetch('/todos')
-        .then((res) => res.json())
-        .then((data) => {
-          setTodos(data)
-        })
-    })
-  }
+  // // POST
+  // const onSubmit = (data: TodoType) => {
+  //   setLoading(true)
+  //   fetch('/todos', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(data),
+  //   }).then(() => {
+  //     setValue('text', '') // reset the input field
+  //     setLoading(false)
+  //     fetch('/todos')
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setTodos(data)
+  //       })
+  //   })
+  // }
 
-  //
-  const handleEdit = (todoId: any, todoText: any) => {
-    setEditingTodoId(todoId)
-    setValue('text', todoText) // fill the input field with the current todo text
-  }
+  // //
+  // const handleEdit = (todoId: any, todoText: any) => {
+  //   setEditingTodoId(todoId)
+  //   setValue('text', todoText) // fill the input field with the current todo text
+  // }
 
-  // Put
-  const handleUpdate = (data: TodoType) => {
-    setLoading(true)
-    fetch(`todos/${editingTodoId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      fetch('/todos')
-        .then((res) => res.json())
-        .then((data) => {
-          setEditingTodoId(null)
-          setValue('text', '') // reset the input field
-          setTodos(data)
-          setLoading(false)
-        })
-    })
-  }
+  // // Put
+  // const handleUpdate = (data: TodoType) => {
+  //   setLoading(true)
+  //   fetch(`todos/${editingTodoId}`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(data),
+  //   }).then((res) => {
+  //     fetch('/todos')
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setEditingTodoId(null)
+  //         setValue('text', '') // reset the input field
+  //         setTodos(data)
+  //         setLoading(false)
+  //       })
+  //   })
+  // }
 
-  // Delete
-  const handleDelete = (todoId: any) => {
-    setLoading(true)
-    fetch(`/todos/${todoId}`, {
-      method: 'DELETE',
-    }).then(() => {
-      setLoading(false)
-      fetch('/todos')
-        .then((res) => res.json())
-        .then((data) => {
-          setTodos(data)
-        })
-    })
-  }
+  // // Delete
+  // const handleDelete = (todoId: any) => {
+  //   setLoading(true)
+  //   fetch(`/todos/${todoId}`, {
+  //     method: 'DELETE',
+  //   }).then(() => {
+  //     setLoading(false)
+  //     fetch('/todos')
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setTodos(data)
+  //       })
+  //   })
+  // }
 
   return (
-    <div>
-      {isTablet && <h2>할일 목록</h2>}
-
-      {isDesktop && (
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={todo.id}>
-              {editingTodoId === todo.id ? (
-                <form onSubmit={handleSubmit(handleUpdate)}>
-                  <Input
-                    {...register('text', {
-                      required: 'This field is required',
-                    })}
-                    type="text"
-                    disabled={loading}
-                  />
-                  {errors.text && <p>{errors.text.message}</p>}
-                  <Button type="submit" $variant="primary">
-                    저장
-                  </Button>
-                  <Button
-                    type="button"
-                    $variant="secondary"
-                    onClick={() => setEditingTodoId(null)}
-                  >
-                    취소
-                  </Button>
-                </form>
-              ) : (
-                <>
-                  {todo.text}
-                  <Button
-                    type="button"
-                    $variant="primary"
-                    onClick={() => handleEdit(todo.id, todo.text)}
-                  >
-                    수정
-                  </Button>
-                  <Button
-                    type="button"
-                    $variant="secondary"
-                    onClick={() => handleDelete(todo.id)}
-                  >
-                    삭제
-                  </Button>
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
+    <>
+      {isSmallerThanDesktop && (
+        <Button type="button" $variant="secondary" $size="md">
+          SmallerThanDesktop
+        </Button>
+      )}
+      {isMobile && (
+        <Button type="button" $variant="secondary" $size="md">
+          Mobile
+        </Button>
       )}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          {...register('text', { required: '에러다임마' })}
-          type="text"
-          placeholder="새로운 할일"
-          error={errors.text?.message}
-        />
+      {isTablet && (
+        <Button type="button" $variant="secondary" $size="md">
+          Tablet
+        </Button>
+      )}
+      {isDesktop && (
+        <Button type="button" $variant="secondary" $size="md">
+          Desktop
+        </Button>
+      )}
+      {isBrowser && (
+        <Button type="button" $variant="secondary" $size="md">
+          Browser
+        </Button>
+      )}
 
-        {isTablet && (
-          <Button type="submit" $variant="primary">
-            추가
-          </Button>
-        )}
-      </form>
-    </div>
+      <div>test</div>
+    </>
+    // <div>
+    //   {isTablet && <h2>할일 목록</h2>}
+
+    //   {isDesktop && (
+    //     <ul>
+    //       {todos.map((todo, index) => (
+    //         <li key={todo.id}>
+    //           {editingTodoId === todo.id ? (
+    //             <form onSubmit={handleSubmit(handleUpdate)}>
+    //               {/* <Input
+    //                 {...register('text', {
+    //                   required: 'This field is required',
+    //                 })}
+    //                 type="text"
+    //                 disabled={loading}
+    //               /> */}
+    //               {errors.text && <p>{errors.text.message}</p>}
+    //               <Button type="submit" $variant="primary">
+    //                 저장
+    //               </Button>
+    //               <Button
+    //                 type="button"
+    //                 $variant="secondary"
+    //                 onClick={() => setEditingTodoId(null)}
+    //               >
+    //                 취소
+    //               </Button>
+    //             </form>
+    //           ) : (
+    //             <>
+    //               {todo.text}
+    //               <Button
+    //                 type="button"
+    //                 $variant="primary"
+    //                 onClick={() => handleEdit(todo.id, todo.text)}
+    //               >
+    //                 수정
+    //               </Button>
+    //               <Button
+    //                 type="button"
+    //                 $variant="secondary"
+    //                 onClick={() => handleDelete(todo.id)}
+    //               >
+    //                 삭제
+    //               </Button>
+    //             </>
+    //           )}
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   )}
+
+    //   <form onSubmit={handleSubmit(onSubmit)}>
+    //     {/* <Input
+    //       {...register('text', { required: '에러다임마' })}
+    //       type="text"
+    //       placeholder="새로운 할일"
+    //       error={errors.text?.message}
+    //     /> */}
+
+    //     {isTablet && (
+    //       <Button type="submit" $variant="primary">
+    //         추가
+    //       </Button>
+    //     )}
+    //   </form>
+    // </div>
   )
 }
