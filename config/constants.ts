@@ -7,3 +7,10 @@ export const Breakpoint = {
 } as const
 
 export type Breakpoint = keyof typeof Breakpoint
+
+export const ModalType = {
+  Test: 'Test',
+  Test2: 'Test2',
+} as const
+
+export type ModalType = (typeof ModalType)[keyof typeof ModalType]

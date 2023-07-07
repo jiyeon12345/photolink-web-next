@@ -2,6 +2,7 @@ import StyledComponentsRegistry from '@/lib/registry'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
 import { notoSansKR } from '@/styles/theme/font'
 import GlobalHooks from '@/components/GlobalHooks'
+import Modals from '@/components/common/Modals/Modal'
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body>
           <GlobalHooks />
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <div id="modal" />
         </body>
       </html>
     </ReactQueryJotaiProvider>

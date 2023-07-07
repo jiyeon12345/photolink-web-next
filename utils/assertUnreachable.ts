@@ -3,7 +3,7 @@
  * @param value 도달해서는 안 되는 값.
  * @throws 도달된 값에 대한 설명적인 메시지를 포함한 에러가 발생.
  */
-export function assertUnreachable(value: never): never {
+export function assertUnreachable(value: any): never {
   if (process.env.NODE_ENV === 'development') {
     console.log('🚨 This code should be unreachable! But received:', value)
   }
