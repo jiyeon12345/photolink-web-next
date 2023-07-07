@@ -3,12 +3,12 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from './common/Button/Button'
-import Pagination from './common/Pagination/Pagination'
-import Input from './common/Input/Input'
 import { useResponsive } from '@/hooks'
 import { isBrowser } from 'react-device-detect'
 import Suspense from './Suspense'
 import Skeleton from './common/Skeleton/Skeleton'
+import { useModal } from '@/hooks/useModal'
+import Modals from './common/Modals/Modal'
 
 type TodoType = {
   id: string
@@ -100,7 +100,11 @@ export default function Test() {
   //       })
   //   })
   // }
+  const { addModal } = useModal()
 
+  const openModal = () => {
+    addModal({ type: 'Test', props: {} })
+  }
   return (
     <>
       {isSmallerThanDesktop && (
@@ -142,8 +146,8 @@ export default function Test() {
           Browser
         </Button>
       )}
-
-      <div>test</div>
+      <button onClick={openModal}>Open Modal</button>
+      <Modals />
     </>
     // <div>
     //   {isTablet && <h2>할일 목록</h2>}
