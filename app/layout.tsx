@@ -20,7 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body>
           <GlobalHooks />
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-          <div id="modal" />
+          <div id="root" />
         </body>
       </html>
     </ReactQueryJotaiProvider>

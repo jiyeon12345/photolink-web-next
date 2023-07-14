@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from './common/Button/Button'
-import { useResponsive } from '@/hooks'
+import { useModal, useResponsive } from '@/hooks'
 import { isBrowser } from 'react-device-detect'
 import Suspense from './Suspense'
 import Skeleton from './common/Skeleton/Skeleton'
-import { useModal } from '@/hooks/useModal'
 import Modals from './common/Modals/Modal'
+import Tag from './common/Chip/Chip'
+import Chip from './common/Chip/Chip'
 
 type TodoType = {
   id: string
@@ -148,6 +149,10 @@ export default function Test() {
       )}
       <button onClick={openModal}>Open Modal</button>
       <Modals />
+      <Chip $variant="red" label="test" />
+      <Chip $variant="primary" label="test" />
+
+      <Chip $variant="yellow" label="test" />
     </>
     // <div>
     //   {isTablet && <h2>할일 목록</h2>}

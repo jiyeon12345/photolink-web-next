@@ -1,9 +1,7 @@
 'use client'
 
-import { useModal } from '@/hooks/useModal'
 import { modalAtom } from '@/states/utils/modalAtom'
 import { useAtomValue } from 'jotai'
-import ModalPortal from './ModalPortal'
 import { MouseEvent, useMemo } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { StyledModalOverlay, StyledModalWrapper } from './styled'
@@ -14,8 +12,9 @@ import {
   modalOverlayVariants,
   modalTransition,
 } from '@/styles/theme/motion'
-import { useResponsive } from '@/hooks'
+import { useModal, useResponsive } from '@/hooks'
 import ModalView from './View/ModalView'
+import Portal from '../Portal/Portal'
 
 function Modals() {
   const { removeModal } = useModal()
@@ -33,7 +32,7 @@ function Modals() {
   )
 
   return (
-    <ModalPortal>
+    <Portal>
       <AnimatePresence>
         {modal && (
           <StyledModalOverlay
@@ -55,7 +54,7 @@ function Modals() {
           </StyledModalWrapper>
         )}
       </AnimatePresence>
-    </ModalPortal>
+    </Portal>
   )
 }
 
