@@ -5,7 +5,6 @@ import { useRef } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { worker } from '../mocks/worker'
 import GlobalStyle from '@/styles/GlobalStyle'
-import GlobalHooks from '@/components/GlobalHooks'
 
 // ! 에러떠서 주석처리함
 // if (process.env.NODE_ENV === 'development') {
@@ -39,7 +38,6 @@ export default function ReactQueryJotaiProvider({
 
   return (
     <QueryClientProvider client={queryClient.current}>
-      <GlobalStyle />
       <Provider>{children}</Provider>
     </QueryClientProvider>
   )

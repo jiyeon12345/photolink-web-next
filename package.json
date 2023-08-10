@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "env | grep -e __NEXT_PRIVATE_PREBUNDLED_REACT >> .env.production && next build",
     "start": "next start",
     "lint": "next lint"
   },

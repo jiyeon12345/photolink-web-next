@@ -1,6 +1,6 @@
 'use client'
 
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { generateHexVariables } from './utils/variables'
 
 const GlobalStyle = createGlobalStyle`
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     html {
         width: 100%;
-        hegith: 100vh;
+        height: 100vh;
         overflow: hidden;
     }
 
