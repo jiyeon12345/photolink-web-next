@@ -1,5 +1,6 @@
 import Input from '@/components/common/Input/Input'
 import SignupPageSocialButton from '@/components/pages/(auth)/SignupPageSocialButton'
+import LoginPageForm from '@/components/pages/(auth)/login/LoginPageForm'
 import Link from 'next/link'
 
 function LoginPage() {
@@ -8,6 +9,8 @@ function LoginPage() {
       <h1>포토링크 로그인</h1>
 
       <p className="text">포토링크에 돌아오신 것을 환영해요!</p>
+
+      <LoginPageForm />
 
       <SignupPageSocialButton url="/" social="카카오 로그인" />
       <SignupPageSocialButton url="/" social="네이버 로그인" />
