@@ -1,5 +1,6 @@
 import { flexbox } from '@/styles/utils/flexbox'
 import { assertUnreachable } from '@/utils/assertUnreachable'
+import Link from 'next/link'
 import { styled, css } from 'styled-components'
 
 export type ButtonSize = 'sm' | 'md' | 'lg'
@@ -106,6 +107,14 @@ export function buttonSizeStyle($size?: ButtonSize) {
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
+  ${buttonStyle}
+  width: ${({ $contain }) => ($contain ? 'auto' : '100%')};
+
+  ${({ $variant }) => buttonVariantStyle($variant)}
+  ${({ $size }) => buttonSizeStyle($size)}
+`
+
+export const StyledLink = styled(Link)<StyledButtonProps>`
   ${buttonStyle}
   width: ${({ $contain }) => ($contain ? 'auto' : '100%')};
 

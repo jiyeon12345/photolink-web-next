@@ -2,6 +2,7 @@ import StyledComponentsRegistry from '@/app/registry'
 import ReactQueryJotaiProvider from './ReactQueryJotaiProvider'
 import { notoSansKR } from '@/styles/theme/font'
 import GlobalHooks from '@/components/GlobalHooks'
+import Footer from '@/components/layouts/Footer/Footer'
 
 export const metadata = {
   title: 'Create Next App',
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div id="root" />
             <GlobalHooks />
             {children}
+            {/* <Footer /> */}
           </StyledComponentsRegistry>
         </body>
       </html>

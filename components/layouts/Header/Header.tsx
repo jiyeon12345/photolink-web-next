@@ -1,19 +1,25 @@
 'use client'
 
 import Input from '@/components/common/Input/Input'
+import { StyledHeader } from './styled'
+import { isTablet } from 'react-device-detect'
 
 function Header() {
   return (
-    <header className="flex items-center justify-between h-[56px]">
-      {/* <div>
-        <h1>로고</h1>
-      </div>
+    <StyledHeader>
+      {isTablet && (
+        <div>
+          <h1>로고</h1>
+        </div>
+      )}
 
-      <div className="flex items-center gap-[20px]">
-        <Input type="text" />
-        <h2>이미지</h2>
-      </div> */}
-    </header>
+      {isTablet && (
+        <div>
+          <Input type="text" />
+          <h2>이미지</h2>
+        </div>
+      )}
+    </StyledHeader>
   )
 }
 

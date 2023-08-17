@@ -1,65 +1,31 @@
-import React, { ChangeEvent, FocusEvent, MouseEvent } from 'react'
-import ErrorMessage from './ErrorMessage'
+'use client'
+import React from 'react'
+import { InputSize, StyledInput } from './styled'
+import type { ControllerRenderProps, FieldValues } from 'react-hook-form'
 
-interface InputProps {
-  label?: string
-  type?: string
-  value?: string
-  name?: string
+type InputProps = {
+  field: ControllerRenderProps<FieldValues>
   placeholder?: string
-  error?: string
-  className?: string
-  disabled?: boolean
-  required?: boolean
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
-  onClick?: (e: MouseEvent<HTMLInputElement>) => void
-  onFocus?: (e: FocusEvent<HTMLInputElement>) => void
-  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  onClick?(): void
+
+  $error: boolean
+  $size: InputSize
 }
 
-function Input({
-  label,
-  type,
-  value,
-  placeholder,
-  error,
-  className,
-  name,
-  disabled,
-  required,
-  onBlur,
-  onChange,
-  onClick,
-  onFocus,
-  onKeyDown,
-}: InputProps) {
-  const defaultClass = `border-2 rounded-md h-[32px]  placeholder-tertiary shadow-md placeholder-opacity-50 focus:border-primary-500  focus:outline-none ${className} ${
-    disabled ? 'cursor-not-allowed' : ''
-  }`
-
-  const errorClass = `border-2 rounded-md border-red-500 border h-[32px]   placeholder-tertiary placeholder-opacity-50 focus:border-red-300 focus:outline-none ${className} ${
-    disabled ? 'cursor-not-allowed' : ''
-  }`
+function Input({ field, placeholder, onClick, $error, $size }: InputProps) {
+  const { ref, ...fieldProps } = field
 
   return (
-    <React.Fragment>
-      {label && <label>{label}</label>}
+    <StyledInput>
       <input
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        className={error ? errorClass : defaultClass}
-        name={name}
-        required={required}
-        onBlur={onBlur}
-        onChange={onChange}
+        {...fieldProps}
+        className="input"
+        type="text"
         onClick={onClick}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        autoComplete="off"
       />
-      {error ? <ErrorMessage error={error} /> : null}
-    </React.Fragment>
+    </StyledInput>
   )
 }
 
