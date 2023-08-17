@@ -8,17 +8,18 @@ export default function ClientSideBoard() {
   //   const { data: boardData } = useFetchBoard()
   const { board, setBoard } = useBoardAtom()
 
-  useMount(() => {
-    const fetchBoard = async () => {
-      try {
-        const response = await client.get('/board/list')
-        setBoard(response.data)
-      } catch (error) {
-        console.error(error)
-      }
+  const fetchBoard = async (setBoard: any) => {
+    try {
+      const response = await client.get('/board/list')
+      setBoard(response.data)
+    } catch (error) {
+      console.error(error)
+      // 필요하다면 사용자에게 오류 메시지 표시
     }
+  }
 
-    fetchBoard()
+  useMount(() => {
+    fetchBoard(setBoard)
   })
 
   return (

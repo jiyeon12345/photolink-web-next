@@ -1,25 +1,28 @@
+'use client'
+
 import Link from 'next/link'
+import { StyledFooter } from './styled'
 
 function Footer() {
   return (
-    <footer className="pt-[40px] pb-[40px] bg-secondary-100">
+    <StyledFooter>
       <nav>
-        <ul className="flex text-dark">
-          <li className="mr-[5px]">
+        <ul className="footer-list">
+          <li className="footer-list-item">
             <Link href={'/'}>asdasdasda</Link>
           </li>
-          <li className="mr-[5px]">
+          <li className="footer-list-item">
             <Link href={'/'}>asdasdasda</Link>
           </li>
-          <li className="mr-[5px]">
+          <li className="footer-list-item">
             <Link href={'/'}>asdasdasda</Link>
           </li>
-          <li className="mr-[5px]">
+          <li className="footer-list-item">
             <Link href={'/'}>asdasdasda</Link>
           </li>
         </ul>
       </nav>
-    </footer>
+    </StyledFooter>
   )
 }
 
