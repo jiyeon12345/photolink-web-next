@@ -17,12 +17,16 @@ export const lgInputStyle = css`
   height: 72px;
 `
 
-export const StyledInput = styled.div``
+export const StyledInput = styled.div`
+  input {
+    border: 1px solid var(--primary-500);
+  }
+`
 
 export const StyledErrorMessage = styled(motion.p)`
   ${textStyle('body', 3)}
   margin-top: 4px;
-  color: var(--red-500);
+  color: var(--red-500) !important;
 
   ${media(
     'tablet',

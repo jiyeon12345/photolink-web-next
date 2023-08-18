@@ -7,24 +7,22 @@ type InputProps = {
   field: ControllerRenderProps<FieldValues>
   placeholder?: string
   onClick?(): void
-
-  $error: boolean
-  $size: InputSize
+  type?: string
+  // $error?: boolean
+  // $size?: InputSize
 }
 
-function Input({ field, placeholder, onClick, $error, $size }: InputProps) {
-  const { ref, ...fieldProps } = field
-
+function Input({
+  field,
+  placeholder,
+  type,
+  onClick,
+}: // $error,
+// $size,
+InputProps) {
   return (
     <StyledInput>
-      <input
-        {...fieldProps}
-        className="input"
-        type="text"
-        onClick={onClick}
-        placeholder={placeholder}
-        autoComplete="off"
-      />
+      <input {...field} className="input" type={type} onClick={onClick} placeholder={placeholder} autoComplete="off" />
     </StyledInput>
   )
 }

@@ -7,13 +7,11 @@ interface ErrorMessageProps {
 
 function ErrorMessage({ error }: ErrorMessageProps) {
   const hasError = !!error
-  const errorClasses = `text-red-500`
 
   return (
     <AnimatePresence>
       {hasError && (
         <motion.p
-          className={errorClasses}
           initial="initial"
           animate="animate"
           exit="exit"
