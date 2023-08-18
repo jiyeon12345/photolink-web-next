@@ -51,7 +51,6 @@ function Button(
         disabled={disabled}
         onClick={onClick}
         type={type}
-        ref={ref as ForwardedRef<HTMLButtonElement>}
         $size={$size}
         $variant={$variant}
         $contain={$contain}

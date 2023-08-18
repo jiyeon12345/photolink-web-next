@@ -15,7 +15,6 @@ function Header() {
 
       {isTablet && (
         <div>
-          <Input type="text" />
           <h2>이미지</h2>
         </div>
       )}
