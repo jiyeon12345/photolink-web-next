@@ -1,5 +1,6 @@
 import { slideInDown } from '@/styles/theme/motion'
 import { AnimatePresence, motion } from 'framer-motion'
+import { StyledErrorMessage } from './styled'
 
 interface ErrorMessageProps {
   error?: string
@@ -11,7 +12,7 @@ function ErrorMessage({ error }: ErrorMessageProps) {
   return (
     <AnimatePresence>
       {hasError && (
-        <motion.p
+        <StyledErrorMessage
           initial="initial"
           animate="animate"
           exit="exit"
@@ -19,7 +20,7 @@ function ErrorMessage({ error }: ErrorMessageProps) {
           variants={slideInDown}
         >
           {error}
-        </motion.p>
+        </StyledErrorMessage>
       )}
     </AnimatePresence>
   )

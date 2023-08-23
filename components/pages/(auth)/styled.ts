@@ -49,6 +49,7 @@ export const StyledAuthPageContainer = styled.main`
           }
         }
       }
+
       &.account {
         padding-top: 24px;
         padding-bottom: 24px;

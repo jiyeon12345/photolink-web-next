@@ -9,7 +9,7 @@ type InputProps = {
   onClick?(): void
   type?: string
   // $error?: boolean
-  // $size?: InputSize
+  $size?: InputSize
 }
 
 function Input({
@@ -17,11 +17,11 @@ function Input({
   placeholder,
   type,
   onClick,
+  $size,
 }: // $error,
-// $size,
 InputProps) {
   return (
-    <StyledInput>
+    <StyledInput $size={$size}>
       <input {...field} className="input" type={type} onClick={onClick} placeholder={placeholder} autoComplete="off" />
     </StyledInput>
   )
