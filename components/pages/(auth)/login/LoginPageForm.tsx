@@ -6,8 +6,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Button from '@/components/common/Button/Button'
 import InputController from '@/components/common/Input/Controller'
 import { LoginFormInputs, loginSchema } from '@/utils/validation'
+import { T_Member } from '@/types/model/member'
+import { useMemberAtom } from '@/states/useMemberAtom'
 
 function LoginPageForm() {
+  const { member } = useMemberAtom() // Jotai 상태 가져오기
+
   const {
     register,
     handleSubmit,
@@ -15,6 +19,7 @@ function LoginPageForm() {
     formState: { errors },
   } = useForm<LoginFormInputs>({
     resolver: zodResolver(loginSchema),
+    defaultValues: member, // 초기값으로 Jotai 상태 사용
     mode: 'all',
   })
 
