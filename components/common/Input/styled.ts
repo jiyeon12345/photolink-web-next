@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import styled, { css } from 'styled-components'
 import { textStyle } from '@/styles/utils/text'
@@ -40,6 +42,7 @@ export function inputSizeStyle($size?: InputSize) {
 
 export const StyledInput = styled.div<StyledInputProps>`
   width: 100%;
+
   .input {
     ${textStyle('body', 2)}
     ${({ $size }) => inputSizeStyle($size)};
@@ -48,13 +51,20 @@ export const StyledInput = styled.div<StyledInputProps>`
     border-radius: 12px;
     padding: 10px 12px;
 
+    &:focus {
+      border-color: var(--primary-500);
+    }
+    
+
     &::placeholder {
       ${textStyle('body', 2)}
     }
   }
 `
 
-export const StyledController = styled.div``
+export const StyledController = styled.div`
+  margin-bottom: 16px;
+`
 export const StyledErrorMessage = styled(motion.p)`
   ${textStyle('body', 3)}
   margin-top: 4px;

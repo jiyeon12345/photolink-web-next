@@ -1,3 +1,4 @@
+'use client'
 import { slideInDown } from '@/styles/theme/motion'
 import { AnimatePresence, motion } from 'framer-motion'
 import { StyledErrorMessage } from './styled'

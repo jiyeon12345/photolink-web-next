@@ -9,10 +9,6 @@ export const StyledAuthPageHeader = styled.header`
   top: 0;
   right: 0;
   left: 0;
-
-  button {
-    w
-  }
 `
 
 export const StyledAuthPageContainer = styled.main`
@@ -74,6 +70,10 @@ export const StyledAuthPageContainer = styled.main`
           }
         }
       }
+    }
+
+    .login-btn {
+      margin-bottom: 16px;
     }
 
     .checkbox-text {

@@ -1,4 +1,3 @@
-import Input from '@/components/common/Input/Input'
 import SignupPageSocialButton from '@/components/pages/(auth)/SignupPageSocialButton'
 import LoginPageForm from '@/components/pages/(auth)/login/LoginPageForm'
 import Link from 'next/link'
@@ -18,7 +17,7 @@ function LoginPage() {
 
       <p className="text login">
         <span>계정이 없으세요?</span>
-        <Link href="/login">회원가입</Link>
+        <Link href="/signup">회원가입</Link>
       </p>
 
       <p className="text account">
