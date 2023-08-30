@@ -1,3 +1,4 @@
+'use client'
 import { Control, Controller, RegisterOptions } from 'react-hook-form'
 import Input from './Input'
 import ErrorMessage from './ErrorMessage'

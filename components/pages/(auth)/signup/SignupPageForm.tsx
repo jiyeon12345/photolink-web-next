@@ -1,16 +1,13 @@
 'use client'
-
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-
 import Button from '@/components/common/Button/Button'
 import InputController from '@/components/common/Input/Controller'
-import { LoginFormInputs, loginSchema } from '@/utils/validation'
-import { T_Member } from '@/types/model/member'
 import { useMemberAtom } from '@/states/useMemberAtom'
+import { LoginFormInputs, loginSchema } from '@/utils/validation'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 
-function LoginPageForm() {
-  const { member } = useMemberAtom() // Jotai 상태 가져오기
+function SignupPageForm() {
+  const { member } = useMemberAtom()
 
   const {
     register,
@@ -29,14 +26,14 @@ function LoginPageForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <InputController name="email" control={control} placeholder="gotohome@n.asd.com" $size="md" />
+      <InputController name="email" control={control} placeholder="이메일" $size="md" />
 
       <InputController name="password" control={control} placeholder="동작하냐" $size="md" />
 
       <Button className="login-btn" $variant="primary" $size="md" type="submit">
-        로그인
+        회원가입
       </Button>
     </form>
   )
 }
-export default LoginPageForm
+export default SignupPageForm

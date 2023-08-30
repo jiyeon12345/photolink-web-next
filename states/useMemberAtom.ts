@@ -1,3 +1,5 @@
+'use client'
+
 import { T_Member } from '@/types/model/member'
 import { atom, useAtom } from 'jotai'
 
