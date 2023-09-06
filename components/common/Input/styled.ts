@@ -54,7 +54,6 @@ export const StyledInput = styled.div<StyledInputProps>`
     &:focus {
       border-color: var(--primary-500);
     }
-    
 
     &::placeholder {
       ${textStyle('body', 2)}
