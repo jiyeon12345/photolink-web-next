@@ -1,8 +1,10 @@
 function ChatPage() {
   return (
-    <div>
-      <h1>Chat</h1>
-    </div>
+    <section>
+      <header></header>
+      <main></main>
+      <textarea></textarea>
+    </section>
   )
 }
 
