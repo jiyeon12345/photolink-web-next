@@ -1,19 +1,32 @@
-export type DeviceType = 'mobile' | 'tablet' | 'laptop' | 'desktop' | 'wide'
-export type LimitType = 'min' | 'max'
+export type DeviceSizeType =
+  | 'minMobile'
+  | 'maxMobile'
+  | 'minTablet'
+  | 'maxTablet'
+  | 'minLaptop'
+  | 'maxLaptop'
+  | 'minDesktop'
+  | 'maxDesktop'
+  | 'minWide'
+  | 'maxWide'
 
 export const sizes = {
-  mobile: { min: 375, max: 374 },
-  tablet: { min: 800, max: 799 },
-  laptop: { min: 1280, max: 1279 },
-  desktop: { min: 1600, max: 1599 },
-  wide: { min: 1920, max: 1919 },
+  mobile: 375,
+  tablet: 800,
+  laptop: 1280,
+  desktop: 1600,
+  wide: 1920,
 }
 
-export const devices: Record<DeviceType, Record<LimitType, string>> = {} as any
-
-for (const device in sizes) {
-  devices[device as DeviceType] = {
-    min: `min-width: ${sizes[device as DeviceType].min}px`,
-    max: `max-width: ${sizes[device as DeviceType].max}px`,
-  }
-}
+export const devices: Record<DeviceSizeType, string> = {
+  minMobile: `min-width: ${sizes.mobile}px`,
+  maxMobile: `max-width: ${sizes.mobile - 1}px`,
+  minTablet: `min-width: ${sizes.tablet}px`,
+  maxTablet: `max-width: ${sizes.tablet - 1}px`,
+  minLaptop: `min-width: ${sizes.laptop}px`,
+  maxLaptop: `max-width: ${sizes.laptop - 1}px`,
+  minDesktop: `min-width: ${sizes.desktop}px`,
+  maxDesktop: `max-width: ${sizes.desktop - 1}px`,
+  minWide: `min-width: ${sizes.wide}px`,
+  maxWide: `max-width: ${sizes.wide - 1}px`,
+} as const
