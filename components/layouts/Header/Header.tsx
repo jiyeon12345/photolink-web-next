@@ -4,7 +4,6 @@ import Input from '@/components/common/Input/Input'
 import { StyledHeader } from './styled'
 import Link from 'next/link'
 import { useResponsive } from '@/hooks'
-import Suspense from '@/components/Suspense'
 
 function Header() {
   const { isDesktop } = useResponsive()

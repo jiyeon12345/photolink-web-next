@@ -30,8 +30,4 @@ export const StyledHeader = styled.header`
       display: flex;
     }
   }
-
-  ${media('tablet', css``)}
-
-  ${media('mobile', css``)}
 `

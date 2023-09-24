@@ -13,15 +13,19 @@ export const StyledCard = styled.div`
     border-radius: 8px;
   }
 
-  .card {
-    &-name {
+  .card-text {
+    margin-bottom: 4px;
+
+    &.name {
       ${textStyle('body', 2, 700)}
     }
-    &-location {
+
+    &.location {
       ${textStyle('body', 3, 700)}
     }
-    &-hash {
-      ${textStyle('body', 4, 700)}
+
+    &.hash {
+      ${textStyle('body', 4)}
       color: var(--secondary-400);
     }
   }
@@ -29,15 +33,17 @@ export const StyledCard = styled.div`
   ${media(
     'minLaptop',
     css`
-      .card {
-        &-name {
+      .card-text {
+        &.name {
           ${textStyle('body', 1, 700)}
         }
-        &-location {
+
+        &.location {
           ${textStyle('body', 2, 700)}
         }
-        &-hash {
-          ${textStyle('body', 3, 700)}
+
+        &.hash {
+          ${textStyle('body', 3)}
           color: var(--secondary-400);
         }
       }
