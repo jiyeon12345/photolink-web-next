@@ -15,6 +15,7 @@ function Carousel({ children, settings }: CarouselProps) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrow: true,
   }
 
   const finalSettings = { ...defaultSettings, ...settings }
